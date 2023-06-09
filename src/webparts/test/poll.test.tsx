@@ -1,11 +1,11 @@
 ///<reference types="jest"/>
 
 import * as React from 'react';
-import {render} from '@testing-library/react';
-//import SpfxWebpartTest from '../webparts/spfxWebpartTest/components/SpfxWebpartTest'
+import {RenderResult, act, render} from '@testing-library/react';
+import SpfxWebpartTest from '../spfxWebpartTest/components/SpfxWebpartTest'
 import Hello from '../spfxWebpartTest/components/Hello'
 
-describe("SpfxWebpartTest", ()=>{
+describe("<Hello>", ()=>{
     test("should render SpfxWebpartTest Component",()=>{
         render(<Hello/>)
     });
@@ -13,6 +13,16 @@ describe("SpfxWebpartTest", ()=>{
         const {getByText}=render(<Hello/>);
         const text=getByText("Hello I am a child")
         expect(text).toBeDefined()
-    })    
+    })  
+})
 
+describe("<SpfxWebpartTest>", ()=>{
+    test("should render description",()=>{
+        let helloworldComponent:RenderResult;
+        act(()=>{
+            helloworldComponent=render(<SpfxWebpartTest description= "this.properties.description" />)
+        })
+        let descriptionParagraph=helloworldComponent.getByTestId("hello-world-description-paragraph");
+        
+    })
 })
