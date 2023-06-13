@@ -18,8 +18,8 @@ export interface ISpfxWebpartTestWebPartProps {
 
 export default class SpfxWebpartTestWebPart extends BaseClientSideWebPart<ISpfxWebpartTestWebPartProps> {
 
-  private _isDarkTheme: boolean = false;
-  private _environmentMessage: string = '';
+  // private _isDarkTheme: boolean = false;
+  // private _environmentMessage: string = '';
 
   public render(): void {
     const element: React.ReactElement<ISpfxWebpartTestProps> = React.createElement(
@@ -38,7 +38,7 @@ export default class SpfxWebpartTestWebPart extends BaseClientSideWebPart<ISpfxW
 
   protected onInit(): Promise<void> {
     return this._getEnvironmentMessage().then(message => {
-      this._environmentMessage = message;
+     // this._environmentMessage = message;
     });
   }
 
@@ -75,7 +75,7 @@ export default class SpfxWebpartTestWebPart extends BaseClientSideWebPart<ISpfxW
       return;
     }
 
-    this._isDarkTheme = !!currentTheme.isInverted;
+   // this._isDarkTheme = !!currentTheme.isInverted;
     const {
       semanticColors
     } = currentTheme;
